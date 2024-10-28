@@ -16,11 +16,15 @@ If you are reading this and you are MrThunker or Manager of Onimai (Vyter who I 
 # Detections Currently
 
 Malwarebytes - 2024/10/28:
+
 ![image](https://github.com/user-attachments/assets/e3f4a638-5dc2-458a-aa02-4225725c9520)
 
 Microsoft Defender (10/11) - 2024/10/28:
+
 ![image](https://github.com/user-attachments/assets/cb671b05-ae81-4350-87d0-0b0338f162a5)
+
 ![image](https://github.com/user-attachments/assets/b317b547-53fb-4360-a955-7d988d5d0874)
+
 ![image](https://github.com/user-attachments/assets/1fb4f10d-6419-45a2-986b-00299d2f9e71)
 
 Virustotal (63 Engines):
