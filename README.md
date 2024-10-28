@@ -19,6 +19,9 @@ Malwarebytes - 2024/10/28:
 
 ![image](https://github.com/user-attachments/assets/e3f4a638-5dc2-458a-aa02-4225725c9520)
 
+![image](https://github.com/user-attachments/assets/1f4c3efc-8678-40fe-8f44-4620fa191b20)
+
+
 Microsoft Defender (10/11) - 2024/10/28:
 
 ![image](https://github.com/user-attachments/assets/cb671b05-ae81-4350-87d0-0b0338f162a5)
@@ -26,6 +29,9 @@ Microsoft Defender (10/11) - 2024/10/28:
 ![image](https://github.com/user-attachments/assets/b317b547-53fb-4360-a955-7d988d5d0874)
 
 ![image](https://github.com/user-attachments/assets/1fb4f10d-6419-45a2-986b-00299d2f9e71)
+
+![image](https://github.com/user-attachments/assets/2b0c5ad0-4780-4b3f-8396-4b9fd600a67a)
+
 
 Virustotal (63 Engines):
 https://www.virustotal.com/gui/file/832bcb96f4b538efbf98980a3f01aff6c00a7995b70d23f77ad0022ddcca82ca/detection (Fud)
