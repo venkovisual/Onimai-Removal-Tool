@@ -33,15 +33,15 @@ https://www.virustotal.com/gui/file/832bcb96f4b538efbf98980a3f01aff6c00a7995b70d
 # Features
 
 <details>
-  <summary>Auto-Task Removal/summary>
+  <summary>Auto-Task Removal</summary>
   Removes Onimai Auto Tasking.
 </details>
 <details>
-  <summary>Rootkit Removal/summary>
+  <summary>Rootkit Removal</summary>
   Removes Onimai Rootkit (1.7.3.)
 </details>
 <details>
-  <summary>Antivirus Replenisher/summary>
+  <summary>Antivirus Replenisher</summary>
   Re-installs ntdll.dll used in EDR - AV's.
 </details>
 <details>
@@ -49,27 +49,27 @@ https://www.virustotal.com/gui/file/832bcb96f4b538efbf98980a3f01aff6c00a7995b70d
   Deletes All Onimai Files.
 </details>
 <details>
-  <summary>Registry Cleaner/summary>
+  <summary>Registry Cleaner</summary>
   Removes Onimai Registry values.
 </details>
 <details>
-  <summary>Enviroment Variable Cleaner/summary>
+  <summary>Enviroment Variable Cleaner</summary>
   Removes Onimai Enviromental Variables.
 </details>
 <details>
-  <summary>Crypto Clipper Remover/summary>
+  <summary>Crypto Clipper Remover</summary>
   Removes Onimai Built in Clipper (It's broken anyway.)
 </details>
 <details>
-  <summary>Process Killer/summary>
+  <summary>Process Killer</summary>
   Kill Onimai Process.
 </details>
 <details>
-  <summary>Circumvent hooks replenisher/summary>
+  <summary>Circumvent hooks replenisher</summary>
   Reloads important hooks.
 </details>
 <details>
-  <summary>Complete Enialation/summary>
+  <summary>Complete Enialation</summary>
   Completely makes onimai go bye.
 </details>
 
