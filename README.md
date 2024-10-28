@@ -15,6 +15,11 @@ If you are reading this and you are MrThunker or Manager of Onimai (Vyter who I 
 
 # Detections Currently
 
+Bitdefender - 2024/10/28:
+
+![image](https://github.com/user-attachments/assets/78eea080-1fc7-4673-883a-a20659527177)
+
+
 Malwarebytes - 2024/10/28:
 
 ![image](https://github.com/user-attachments/assets/e3f4a638-5dc2-458a-aa02-4225725c9520)
