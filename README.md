@@ -19,6 +19,9 @@ Bitdefender - 2024/10/28:
 
 ![image](https://github.com/user-attachments/assets/78eea080-1fc7-4673-883a-a20659527177)
 
+ESET Antivirus - 2024/10/29:
+
+![image](https://github.com/user-attachments/assets/2d2988b2-178f-456a-9299-47607c200e37)
 
 Malwarebytes - 2024/10/28:
 
