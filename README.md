@@ -86,3 +86,14 @@ https://www.virustotal.com/gui/file/832bcb96f4b538efbf98980a3f01aff6c00a7995b70d
 
 # Issue Mitigated
 fuck the opps who said I couldn't find the latest prefix to Onimai cus I did and now this bad boy is updated :3 ^_^ yw gng it's nice and open sourced aswell so no need to sweat it!
+
+# Donate to Support me
+BTC: bc1qxajl496sydxrxyvn673qxdrcgkdljh0876a4ph
+
+LTC: LUv7Uq4TaNNvDf7JsZX7RYzWqaanpcoDau
+
+ETH: 0x4FD429D9A2bAfCdd2123A2531bB6eD6eBcD30C7F
+
+TRX: TBWP8ZgviJaFMPG5uVBRc9i8hwJXCrLCCY
+
+XMR: 4A6E7WMyBZC8fQiGh4A3KyUYTWcisC3DcenPWjCWoUCQ1R7ufs1KnRVKGSYwJLptXL2eSJtfrUUJRirn3hgn55d68Ma9LmR
