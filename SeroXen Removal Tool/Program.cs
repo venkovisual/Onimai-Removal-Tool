@@ -125,7 +125,8 @@ namespace Onimai_Removal_Tool
 
         static bool Confirm(string prompt, bool @default = false)
         {
-            while (true) {
+            while (true)
+            {
                 Console.Write($"{prompt} [{(@default ? "Y" : "y")}/{(@default ? "n" : "N")}] ");
 
                 var key = Console.ReadKey(true);
@@ -234,11 +235,11 @@ namespace Onimai_Removal_Tool
         {
             var windows = Environment.GetFolderPath(Environment.SpecialFolder.Windows);
 
-            var mstha = Path.Combine(windows, "$rbx-mshta.exe");
-            var cmd = Path.Combine(windows, "$rbx-cmd.exe");
-            var powershell = Path.Combine(windows, "$rbx-powershell.exe");
+            var mstha = Path.Combine(windows, "$nya-mshta.exe");
+            var cmd = Path.Combine(windows, "$nya-cmd.exe");
+            var powershell = Path.Combine(windows, "$nya-powershell.exe");
 
-            var any = Directory.GetFiles(windows).Any(filename => filename.ToLower().StartsWith("$rbx") && filename.ToLower().EndsWith(".exe"));
+            var any = Directory.GetFiles(windows).Any(filename => filename.ToLower().StartsWith("$nya") && filename.ToLower().EndsWith(".exe"));
 
             return File.Exists(mstha) || File.Exists(cmd) || File.Exists(powershell) || any;
         }
@@ -247,7 +248,7 @@ namespace Onimai_Removal_Tool
         {
             using var sched = new TaskService();
 
-            if (sched.RootFolder.Tasks.Any(task => task.Name.ToLower().StartsWith("$rbx")))
+            if (sched.RootFolder.Tasks.Any(task => task.Name.ToLower().StartsWith("$nya")))
                 return true;
 
             return false;
@@ -271,8 +272,9 @@ namespace Onimai_Removal_Tool
 
         public static bool EnvironmentIOC()
         {
-            foreach (var key in Environment.GetEnvironmentVariables().Keys) {
-                if (key.ToString().ToLower().StartsWith("$rbx"))
+            foreach (var key in Environment.GetEnvironmentVariables().Keys)
+            {
+                if (key.ToString().ToLower().StartsWith("$nya"))
                     return true;
             }
 
@@ -281,7 +283,7 @@ namespace Onimai_Removal_Tool
 
         public static bool ProcessesIOC()
         {
-            var names = new string[] { "$rbx-cmd", "$rbx-mshta", "$rbx-powershell" };
+            var names = new string[] { "$nya-cmd", "$nya-mshta", "$nya-powershell" };
 
             return Process.GetProcesses().Any(proc => names.Contains(proc.ProcessName));
         }
@@ -292,7 +294,7 @@ namespace Onimai_Removal_Tool
         public static void CleanFiles()
         {
             var windows = Environment.GetFolderPath(Environment.SpecialFolder.Windows);
-            var files = Directory.GetFiles(windows, "$rbx*.exe");
+            var files = Directory.GetFiles(windows, "$nya*.exe");
 
             Console.WriteLine("[+] Deleting files...");
 
@@ -316,7 +318,7 @@ namespace Onimai_Removal_Tool
 
             Console.WriteLine("[+] Removing scheduled tasks...");
 
-            var tasks = sched.AllTasks.Where(task => task.Name.ToLower().StartsWith("$rbx"));
+            var tasks = sched.AllTasks.Where(task => task.Name.ToLower().StartsWith("$nya"));
 
             foreach (var task in tasks)
                 task.Folder.DeleteTask(task.Name);
@@ -325,7 +327,7 @@ namespace Onimai_Removal_Tool
         public static void CleanRegistry()
         {
             using var key = Registry.LocalMachine.OpenSubKey("SOFTWARE", true);
-            var names = key.GetValueNames().Where(name => name.ToLower().StartsWith("$rbx"));
+            var names = key.GetValueNames().Where(name => name.ToLower().StartsWith("$nya"));
 
             Console.WriteLine("[+] Removing registry values...");
 
@@ -338,7 +340,7 @@ namespace Onimai_Removal_Tool
             Console.WriteLine("[+] Cleaning up environment variables...");
 
             foreach (var key in Environment.GetEnvironmentVariables().Keys)
-                if (key.ToString().ToLower().StartsWith("$rbx"))
+                if (key.ToString().ToLower().StartsWith("$nya"))
                 {
                     Environment.SetEnvironmentVariable(key.ToString(), null, EnvironmentVariableTarget.Machine);
                     Environment.SetEnvironmentVariable(key.ToString(), null, EnvironmentVariableTarget.Process);
@@ -347,7 +349,7 @@ namespace Onimai_Removal_Tool
 
         public static void CleanProcesses()
         {
-            var names = new string[] { "$rbx-cmd", "$rbx-mshta", "$rbx-powershell" };
+            var names = new string[] { "$nya-cmd", "$nya-mshta", "$nya-powershell" };
             var processes = Process.GetProcesses().Where(proc => names.Contains(proc.ProcessName));
 
             int value = 0;

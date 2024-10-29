@@ -1,0 +1,12 @@
+C:\Users\miles\Downloads\Onimai Removal Tool\SeroXen Removal Tool\bin\Release\SeroXen_Removal_Tool.exe.config
+C:\Users\miles\Downloads\Onimai Removal Tool\SeroXen Removal Tool\bin\Release\SeroXen_Removal_Tool.exe
+C:\Users\miles\Downloads\Onimai Removal Tool\SeroXen Removal Tool\bin\Release\SeroXen_Removal_Tool.pdb
+C:\Users\miles\Downloads\Onimai Removal Tool\SeroXen Removal Tool\bin\Release\Microsoft.Win32.TaskScheduler.xml
+C:\Users\miles\Downloads\Onimai Removal Tool\SeroXen Removal Tool\bin\Release\System.Diagnostics.DiagnosticSource.xml
+C:\Users\miles\Downloads\Onimai Removal Tool\SeroXen Removal Tool\obj\Release\Onimai Removal Tool.csproj.AssemblyReference.cache
+C:\Users\miles\Downloads\Onimai Removal Tool\SeroXen Removal Tool\obj\Release\Onimai Removal Tool.csproj.CoreCompileInputs.cache
+C:\Users\miles\Downloads\Onimai Removal Tool\SeroXen Removal Tool\obj\Release\Onimai Removal Tool.csproj.Fody.CopyLocal.cache
+C:\Users\miles\Downloads\Onimai Removal Tool\SeroXen Removal Tool\obj\Release\Onimai Removal Tool.csproj.Fody.RuntimeCopyLocal.cache
+C:\Users\miles\Downloads\Onimai Removal Tool\SeroXen Removal Tool\obj\Release\Onimai R.002DF4F6.Up2Date
+C:\Users\miles\Downloads\Onimai Removal Tool\SeroXen Removal Tool\obj\Release\SeroXen_Removal_Tool.exe
+C:\Users\miles\Downloads\Onimai Removal Tool\SeroXen Removal Tool\obj\Release\SeroXen_Removal_Tool.pdb
