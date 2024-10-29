@@ -84,5 +84,5 @@ https://www.virustotal.com/gui/file/832bcb96f4b538efbf98980a3f01aff6c00a7995b70d
   Completely makes onimai go bye.
 </details>
 
-# Warning - 2024/10/28
-Onimai is currently on a version 1.7.4 which I do not have the rootkit prefix for I cannot currently update to this version I only have 1.7.3 as of now, which your antivirus probably would of removed already
+# Issue Mitigated
+fuck the opps who said I couldn't find the latest prefix to Onimai cus I did and now this bad boy is updated :3 ^_^ yw gng it's nice and open sourced aswell so no need to sweat it!
