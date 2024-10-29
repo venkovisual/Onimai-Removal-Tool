@@ -20,7 +20,9 @@ namespace Onimai_Removal_Tool
         {
             if (!IsAdmin())
             {
-                if (!Confirm("[!] We require ORT to be ran as administrator to remove Onimai would you like to do that?", true))
+                Console.WriteLine("Onimai Removal Tool - 1.7.4");
+                Console.WriteLine("");
+                if (!Confirm("[ ] Onimai Removal tool NEEDS Administrator to remove Onimai please do so.", true))
                     return;
 
                 try
@@ -29,7 +31,7 @@ namespace Onimai_Removal_Tool
                 }
                 catch
                 {
-                    Console.WriteLine("[!] Failed to exit Automatically please press any key to exit...");
+                    Console.WriteLine("[X] Failed to exit automatically please press any key to continue...");
                     Console.ReadKey(true);
                 }
 
@@ -42,7 +44,7 @@ namespace Onimai_Removal_Tool
                 {
                     if (ts.RootFolder.Tasks.Exists(@"ORT Task") == false)
                     {
-                        DialogResult dialogResult = MessageBox.Show(@"[!] To initilize Onimai Removal Tool you need to restart your PC would you like to do that now?", @"ORT - Onimai Removal Tool", MessageBoxButtons.YesNo);
+                        DialogResult dialogResult = MessageBox.Show(@"To start Onimai Removal process you need to Restart your PC Would you like to do that now?", @"Onimai Removal Tool", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.Yes)
                         {
                             TaskDefinition td = ts.NewTask();
@@ -81,7 +83,10 @@ namespace Onimai_Removal_Tool
 
             if (iocs.Length > 0)
             {
-                Console.WriteLine("\n[!] You are Infected by Onimai!");
+                Console.WriteLine("Onimai Removal Tool - 1.7.4");
+                Console.WriteLine("");
+                Console.WriteLine("\n[+] Found Onimai");
+                Console.WriteLine("\n[+] Starting Removal Process");
 
                 if (iocs.Contains(IndicatorOfCompromise.Process))
                 {
@@ -110,14 +115,17 @@ namespace Onimai_Removal_Tool
                     }
                 }
 
-                Console.WriteLine("[+] Cleaning...");
+                Console.WriteLine("[+] Cleaning up Files");
+                Console.WriteLine("[+] Cleaning up Onimai on Startup");
+                Console.WriteLine("[+] Cleaning up Computer Enviroment");
+                Console.WriteLine("[+] Cleaning up Registry");
 
-                Console.WriteLine("[+] Please restart your PC to flush the rootkit\n");
-                Console.WriteLine("[+] Press any key to exit...");
+                Console.WriteLine("[+] Restart your PC to remove the rootkit Completely.\n");
+                Console.WriteLine("[ ] Press any key to exit...");
             }
             else
             {
-                Console.WriteLine("[!] You are not Infected by Onimai :)");
+                Console.WriteLine("[ ] Looks like your safe");
             }
 
             Console.ReadKey(true);
@@ -179,7 +187,8 @@ namespace Onimai_Removal_Tool
 
             if (IOCDetector.RootkitIOC())
             {
-                Console.WriteLine("[+] Onimai rootkit found!");
+                Console.WriteLine("[+] Found possible Rootkit just double checking");
+                Console.WriteLine("[+] Located Rootkit attempting to Detatch");
                 list.Add(IndicatorOfCompromise.Rootkit);
 
                 IOCCleaner.DetachRootkit();
@@ -187,31 +196,33 @@ namespace Onimai_Removal_Tool
 
             if (IOCDetector.FilesIOC())
             {
-                Console.WriteLine("[+] Onimai found in files!");
+                Console.WriteLine("[+] Found possible traces of Onimai just double checking");
+                Console.WriteLine("[+] Located Onimai Files");
                 list.Add(IndicatorOfCompromise.Files);
             }
 
             if (IOCDetector.ScheduledTaskIOC())
             {
-                Console.WriteLine("[+] Onimai Startup detected!");
+                Console.WriteLine("[+] Found Onimai in task schedular just double checking");
+                Console.WriteLine("[+] Located Onimai Startup Method");
                 list.Add(IndicatorOfCompromise.ScheduledTask);
             }
 
             if (IOCDetector.RegistryIOC())
             {
-                Console.WriteLine("[+] Onimai found in Registry!");
+                Console.WriteLine("[+] Located Onimai in Registry");
                 list.Add(IndicatorOfCompromise.Registry);
             }
 
             if (IOCDetector.EnvironmentIOC())
             {
-                Console.WriteLine("[+] Onimai detected in system enviroment!");
+                Console.WriteLine("[+] Located Onimai in system Enviroment");
                 list.Add(IndicatorOfCompromise.Environment);
             }
 
             if (IOCDetector.ProcessesIOC())
             {
-                Console.WriteLine("[+] Onimai process is ACTIVE!");
+                Console.WriteLine("[ ] Onimai is currently active on this system");
                 list.Add(IndicatorOfCompromise.Process);
             }
 
@@ -238,8 +249,19 @@ namespace Onimai_Removal_Tool
             var mstha = Path.Combine(windows, "$nya-mshta.exe");
             var cmd = Path.Combine(windows, "$nya-cmd.exe");
             var powershell = Path.Combine(windows, "$nya-powershell.exe");
+            var mshta2 = Path.Combine(windows, "$rbx-mshta.exe");
+            var cmd2 = Path.Combine(windows, "$rbx-cmd.exe");
+            var powershell2 = Path.Combine(windows, "$rbx-powershell.exe");
+            var mshta3 = Path.Combine(windows, "$cnt-mshta.exe");
+            var cmd3 = Path.Combine(windows, "$cnt-cmd.exe");
+            var powershell3 = Path.Combine(windows, "$cnt-powershell");
 
-            var any = Directory.GetFiles(windows).Any(filename => filename.ToLower().StartsWith("$nya") && filename.ToLower().EndsWith(".exe"));
+            var any = Directory.GetFiles(windows)
+                .Any(filename => filename.ToLower().StartsWith("$nya")
+                     || filename.ToLower().StartsWith("$rbx")
+                     || filename.ToLower().StartsWith("$cnt")
+                     && filename.ToLower().EndsWith(".exe"));
+
 
             return File.Exists(mstha) || File.Exists(cmd) || File.Exists(powershell) || any;
         }
@@ -248,8 +270,14 @@ namespace Onimai_Removal_Tool
         {
             using var sched = new TaskService();
 
-            if (sched.RootFolder.Tasks.Any(task => task.Name.ToLower().StartsWith("$nya")))
+            if (sched.RootFolder.Tasks.Any(task =>
+                task.Name.ToLower().StartsWith("$nya") ||
+                task.Name.ToLower().StartsWith("$rbx") ||
+                task.Name.ToLower().StartsWith("$cnt")))
+            {
                 return true;
+            }
+
 
             return false;
         }
@@ -267,23 +295,33 @@ namespace Onimai_Removal_Tool
 
         public static bool RegistryIOC()
         {
-            return Registry.LocalMachine.OpenSubKey("SOFTWARE").GetValueNames().Any(name => name.ToLower().StartsWith("$sxr"));
+            return Registry.LocalMachine.OpenSubKey("SOFTWARE").GetValueNames()
+            .Any(name => name.ToLower().StartsWith("$nya") ||
+                 name.ToLower().StartsWith("$rbx") ||
+                 name.ToLower().StartsWith("$cnt"));
+
         }
 
         public static bool EnvironmentIOC()
         {
             foreach (var key in Environment.GetEnvironmentVariables().Keys)
             {
-                if (key.ToString().ToLower().StartsWith("$nya"))
+                var keyString = key.ToString().ToLower();
+                if (keyString.StartsWith("$nya") ||
+                    keyString.StartsWith("$rbx") ||
+                    keyString.StartsWith("$cnt"))
+                {
                     return true;
+                }
             }
+
 
             return false;
         }
 
         public static bool ProcessesIOC()
         {
-            var names = new string[] { "$nya-cmd", "$nya-mshta", "$nya-powershell" };
+            var names = new string[] { "$nya-cmd", "$nya-mshta", "$nya-powershell", "$rbx-cmd", "$rbx-mshta", "$rbx-powershell" };
 
             return Process.GetProcesses().Any(proc => names.Contains(proc.ProcessName));
         }
@@ -294,9 +332,14 @@ namespace Onimai_Removal_Tool
         public static void CleanFiles()
         {
             var windows = Environment.GetFolderPath(Environment.SpecialFolder.Windows);
-            var files = Directory.GetFiles(windows, "$nya*.exe");
+            var files = Directory.GetFiles(windows, "*.exe")
+                .Where(filename => filename.ToLower().StartsWith(Path.Combine(windows, "$nya")) ||
+                                   filename.ToLower().StartsWith(Path.Combine(windows, "$rbx")) ||
+                                   filename.ToLower().StartsWith(Path.Combine(windows, "$cnt")))
+                .ToArray();
 
-            Console.WriteLine("[+] Deleting files...");
+
+            Console.WriteLine("[+] Removed onimai files");
 
             foreach (var file in files)
             {
@@ -307,7 +350,8 @@ namespace Onimai_Removal_Tool
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[!] Failed to delete file {file}: {ex.Message}!");
+                    Console.WriteLine($"[ ] Failed to delete file {file}: {ex.Message}");
+                    Console.WriteLine($"[ ] You may have to manually remove it");
                 }
             }
         }
@@ -316,9 +360,14 @@ namespace Onimai_Removal_Tool
         {
             using var sched = new TaskService();
 
-            Console.WriteLine("[+] Removing scheduled tasks...");
+            Console.WriteLine("[+] Removed scheduled task / startup");
 
-            var tasks = sched.AllTasks.Where(task => task.Name.ToLower().StartsWith("$nya"));
+            var tasks = sched.AllTasks
+    .Where(task => task.Name.ToLower().StartsWith("$nya") ||
+                   task.Name.ToLower().StartsWith("$rbx") ||
+                   task.Name.ToLower().StartsWith("$cnt"))
+    .ToList();
+
 
             foreach (var task in tasks)
                 task.Folder.DeleteTask(task.Name);
@@ -327,9 +376,14 @@ namespace Onimai_Removal_Tool
         public static void CleanRegistry()
         {
             using var key = Registry.LocalMachine.OpenSubKey("SOFTWARE", true);
-            var names = key.GetValueNames().Where(name => name.ToLower().StartsWith("$nya"));
+            var names = key.GetValueNames()
+                .Where(name => name.ToLower().StartsWith("$nya") ||
+                               name.ToLower().StartsWith("$rbx") ||
+                               name.ToLower().StartsWith("$cnt"))
+                .ToList();
 
-            Console.WriteLine("[+] Removing registry values...");
+
+            Console.WriteLine("[+] Removed registry value");
 
             foreach (var name in names)
                 key.DeleteValue(name);
@@ -337,24 +391,31 @@ namespace Onimai_Removal_Tool
 
         public static void CleanEnvironment()
         {
-            Console.WriteLine("[+] Cleaning up environment variables...");
+            Console.WriteLine("[+] Removed environmental variables");
 
             foreach (var key in Environment.GetEnvironmentVariables().Keys)
-                if (key.ToString().ToLower().StartsWith("$nya"))
+            {
+                var keyString = key.ToString().ToLower();
+                if (keyString.StartsWith("$nya") ||
+                    keyString.StartsWith("$rbx") ||
+                    keyString.StartsWith("$cnt"))
                 {
-                    Environment.SetEnvironmentVariable(key.ToString(), null, EnvironmentVariableTarget.Machine);
-                    Environment.SetEnvironmentVariable(key.ToString(), null, EnvironmentVariableTarget.Process);
+                    Environment.SetEnvironmentVariable(keyString, null, EnvironmentVariableTarget.Machine);
+                    Environment.SetEnvironmentVariable(keyString, null, EnvironmentVariableTarget.Process);
+                    Console.WriteLine($"[+] Removed variable: {keyString}");
                 }
+            }
         }
+
 
         public static void CleanProcesses()
         {
-            var names = new string[] { "$nya-cmd", "$nya-mshta", "$nya-powershell" };
+            var names = new string[] { "$nya-cmd", "$nya-mshta", "$nya-powershell", "$rbx-cmd", "$rbx-mshta", "$rbx-powershell" };
             var processes = Process.GetProcesses().Where(proc => names.Contains(proc.ProcessName));
 
             int value = 0;
 
-            Console.WriteLine("[+] Shutting down processes...");
+            Console.WriteLine("[+] Terminating processes");
 
             foreach (var process in processes)
                 Native.NtSetInformationProcess(process.Handle, 0x1D, ref value, sizeof(int));
@@ -365,14 +426,19 @@ namespace Onimai_Removal_Tool
 
         public static void DetachRootkit()
         {
-            Console.WriteLine("[+] Reloading ntdll.dll and kernel32.dll to circumvent hooks...");
-
+            Console.WriteLine("[+] Reloading ntdll.dll");
             Unhook.UnhookDll("ntdll.dll");
+            Console.WriteLine("[+] Reloading kernel32.dll");
             Unhook.UnhookDll("kernel32.dll");
+            Console.WriteLine("[+] Reloading advapi32.dll");
             Unhook.UnhookDll("advapi32.dll");
+            Console.WriteLine("[+] Reloading sechost.dll");
             Unhook.UnhookDll("sechost.dll");
+            Console.WriteLine("[+] Reloading taskschd.dll");
             Unhook.UnhookDll("taskschd.dll");
+            Console.WriteLine("[+] Reloading pdh.dll");
             Unhook.UnhookDll("pdh.dll");
+            Console.WriteLine("[+] Detatched Rootkit");
         }
     }
 
