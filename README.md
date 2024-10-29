@@ -1,6 +1,6 @@
 # Read Me
 
-If you are reading this and you are MrThunker or Manager of Onimai (Vyter who I highly still respect) personally I will tell you to fuck off mrthunker especially we all know your a skid especially with the latest 1.7.4 update you skidded that one AsyncRAT mod and you skidded Quasar Mod and you skidded Xeno hVNC which is just all together cringey you say you coded the crypting too but that was @C5Hackr :p and I have been told this by more then one source also to onimai community for a long time i've been holding back the fact I want to call you all RETARDS you all do not know a basic thing about coding or ratting except t8c and maybe cpores & twobit.
+If you are reading this and you are MrThunker or Manager of Onimai personally I will tell you to fuck off mrthunker especially we all know your a skid especially with the latest 1.7.4 update you skidded that one AsyncRAT mod and you skidded Quasar Mod and you skidded Xeno hVNC which is just all together cringey you say you coded the crypting too but that was @C5Hackr :p and I have been told this by more then one source also to onimai community for a long time i've been holding back the fact I want to call you all RETARDS you all do not know a basic thing about coding or ratting except t8c and maybe cpores & twobit.
 
 # How to use
 
